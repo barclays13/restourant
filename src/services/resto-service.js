@@ -9,12 +9,10 @@ export default class RestoService {
         if (!res.ok) {
             throw new Error(`Could not fetch ${url}, status: ${res.status}`)
         }
-    
         return await res.json();
-    }
+    };
 
-    getMenuItems () {
+    getMenuItems() {
         return this.getResource('/menu');
-    }
-
+    };
 }
