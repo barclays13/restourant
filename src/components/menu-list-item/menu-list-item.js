@@ -22,8 +22,8 @@ const MenuListItem = ({menuItem, onAddToCart}) => {
                 <img className="menu__img" src={url} alt="Cesar salad"></img>
                 <div className="menu__category">Category: <span>{category}</span><div className="category-icon">{typeIcon}</div></div>
                 
-                <div className="menu__price">Price: <span>{price}$</span></div>
-                <button onClick={()=> onAddToCart()} className="menu__btn">Add to cart</button>
+                <div className="menu__price">Price: <span>{price}$</span> </div>
+                <button  onClick={()=> onAddToCart()}  className="menu__btn">Add to cart</button>
 
             </li>
     )
