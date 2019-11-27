@@ -22,6 +22,7 @@
         margin-bottom: 20px;
     }
     &__category, &__price {
+        display: flex;
         font-size: 18px;
         font-weight: 300;
         margin-bottom: 10px;
@@ -39,4 +40,9 @@
         font-size: 16px;
         cursor: pointer;
     }
+}
+
+
+.category-icon{
+    margin-left: 10px;
 }
