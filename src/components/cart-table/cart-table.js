@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {deleteFromCart} from '../../actions';
 
 const CartTable = ({items, deleteFromCart, count}) => {
-    console.log('count: ', count);
     return (
         <>
             <div className="cart__title">Ваш заказ:</div>
@@ -12,7 +11,6 @@ const CartTable = ({items, deleteFromCart, count}) => {
                 {
                     items.map(item => {
                         const {title, price, url, id} = item;
-                                                
                         return (
                             <div key ={id} className="cart__item">
                                 <img src={url} className="cart__item-img" alt={title}></img>
@@ -23,7 +21,6 @@ const CartTable = ({items, deleteFromCart, count}) => {
                         )
                     })
                 }
-
             </div>
         </>
     );

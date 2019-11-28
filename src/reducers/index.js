@@ -72,7 +72,7 @@ const reducer = (state = initialState, action) => {
             const idx = action.payload;
             const itemIndex = state.items.findIndex(item => item.id === idx);
             const it = state.items.find(it => it.id === idx);
-            const priceIt = state.total - it.price;
+            const priceIt = state.total - (it.price * state.count);
             return {
                 ...state,
                 total: priceIt,
