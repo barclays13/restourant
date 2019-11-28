@@ -7,9 +7,9 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
+
     switch (action.type) {
         case 'MENU_LOADED':
-                console.log('state',state);
             return {
                 ...state,
                 menu: action.payload,
@@ -33,31 +33,41 @@ const reducer = (state = initialState, action) => {
         case 'ITEM_ADD_TO_CART':
             const id = action.payload;
             const item = state.menu.find(item => item.id === id)
-            const itemAct = state.items.find(itemAct => itemAct.id === id)
             const priceItem = state.total + item.price;
-            if (itemAct) {
-                console.log(0);
+            const countItem = state.items.find(itemCart => itemCart.id === id);
+            let count;
+            if (countItem === undefined){
+                count = 1;
+                let newItem = {
+                    title: item.title,
+                    price: item.price,
+                    url: item.url,
+                    id: item.id,
+                };
+                return {
+                    ...state,
+                    total: priceItem,
+                    count: count,
+                    items:[
+                        ...state.items,
+                        newItem
+                    ]
+                };
+
             } else {
-                console.log(1);
+                count = state.count + 1;
             }
 
-
-            
-            const newItem = {
-                title: item.title,
-                price: item.price,
-                url: item.url,
-                id: item.id,
-                count: item.count
-            };
             return {
                 ...state,
                 total: priceItem,
+                count: count,
                 items:[
                     ...state.items,
-                    newItem
+                    
                 ]
             };
+
         case 'ITEM_REMOVE_FROM_CART':
             const idx = action.payload;
             const itemIndex = state.items.findIndex(item => item.id === idx);
