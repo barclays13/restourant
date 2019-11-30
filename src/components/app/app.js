@@ -1,17 +1,19 @@
 import React from 'react';
 import {MainPage, CartPage} from '../pages';
 import AppHeader from '../app-header';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Background from './food-bg.jpg';
+import {Route,Switch, Redirect} from 'react-router-dom';
+
 
 const App = () => {
     return (
-        <Router>
-                <Route path='/'  component={() => <div style={{background: `url(${Background}) center center/cover no-repeat`}} className="app"></div>}/>
-                <AppHeader total={50}/>
-                <Route path='/menu' component={MainPage}/>
-                <Route path='/cart' component={CartPage}/>
-        </Router>
+        <div className="app">
+            <AppHeader />
+            <Switch>
+                <Route path='/menu' exact render={() => <MainPage/>}/>
+                <Route path='/cart'render={() => <CartPage/>} />
+                {/* <Redirect from='/' to='/menu'/> */}
+            </Switch>   
+        </div>
     )
 }
 

@@ -1,5 +1,4 @@
 export default class RestoService {
-
     constructor() {
         this._apiBase = 'http://localhost:3000';
     }
@@ -15,4 +14,5 @@ export default class RestoService {
     getMenuItems() {
         return this.getResource('/menu');
     };
+    
 }

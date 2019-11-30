@@ -24,6 +24,7 @@ const reducer = (state = initialState, action) => {
                 error: false
             };
         case 'MENU_ERROR':
+            console.log('action.payload',action.payload);
             return {
                 ...state,
                 menu: state.menu,
@@ -98,6 +99,8 @@ const reducer = (state = initialState, action) => {
             default:
             return state;
     }
+
 }
+
 
 export default reducer;

@@ -5,14 +5,15 @@ const menuLoaded = (newMenu) => {
     };
 };
 const menuRequested = () => {
-
     return {
         type : 'MENU_REQUESTED'
     };
 };
-const menuError = () => {
+const menuError = (error) => {
+
     return {
-        type : 'MENU_ERROR'
+        type : 'MENU_ERROR',
+        payload: error
     };
 };
 const addedToCart = (id) => {
