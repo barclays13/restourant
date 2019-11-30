@@ -10,7 +10,7 @@ const menuRequested = () => {
     };
 };
 const menuError = (error) => {
-
+console.log(0);
     return {
         type : 'MENU_ERROR',
         payload: error

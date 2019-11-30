@@ -3,7 +3,6 @@ import {MainPage, CartPage} from '../pages';
 import AppHeader from '../app-header';
 import {Route,Switch, Redirect} from 'react-router-dom';
 
-
 const App = () => {
     return (
         <div className="app">
@@ -11,7 +10,7 @@ const App = () => {
             <Switch>
                 <Route path='/menu' exact render={() => <MainPage/>}/>
                 <Route path='/cart'render={() => <CartPage/>} />
-                {/* <Redirect from='/' to='/menu'/> */}
+                <Redirect from='/' to='/menu'/>
             </Switch>   
         </div>
     )
