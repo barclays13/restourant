@@ -6,15 +6,13 @@ class Error extends Component {
     componentDidMount (){
         this.props.menuError();
     }
-
     render (){
         return(
             <div style={{color: "white", textAlign: "center"}} className="error">Error</div>
         )
     }
-
-
 }
+
 const mapStateToProps = (state) => {
     console.log('state: ', state);
     return {
@@ -27,7 +25,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     menuError
 };
-
 
 export default WithRestoService()(connect(mapStateToProps, mapDispatchToProps)(Error));
 
