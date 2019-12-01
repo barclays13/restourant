@@ -9,11 +9,10 @@ const menuRequested = () => {
         type : 'MENU_REQUESTED'
     };
 };
-const menuError = (error) => {
+const menuError = () => {
 console.log(0);
     return {
-        type : 'MENU_ERROR',
-        payload: error
+        type : 'MENU_ERROR'
     };
 };
 const addedToCart = (id) => {
