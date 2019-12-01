@@ -8,10 +8,8 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-    console.log('state: ', state);
     switch (action.type) {
         case 'MENU_LOADED':
-                console.log('MENU_LOADED');
             return {
                 ...state,
                 menu: action.payload,
@@ -19,7 +17,6 @@ const reducer = (state = initialState, action) => {
                 error: false
             };
         case 'MENU_REQUESTED':
-                console.log('MENU_REQUESTED');
             return {
                 ...state,
                 menu: state.menu,
@@ -27,10 +24,8 @@ const reducer = (state = initialState, action) => {
                 error: false
             };
         case 'MENU_ERROR':
-            console.log('MENU_ERROR');
             return {
                 ...state,
-                menu: state.menu,
                 loading: false,
                 error: true
             };
@@ -104,6 +99,5 @@ const reducer = (state = initialState, action) => {
     }
 
 }
-
 
 export default reducer;

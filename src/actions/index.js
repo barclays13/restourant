@@ -10,7 +10,6 @@ const menuRequested = () => {
     };
 };
 const menuError = () => {
-console.log(0);
     return {
         type : 'MENU_ERROR'
     };
@@ -27,7 +26,6 @@ const deleteFromCart = (id) => {
         payload: id
     };
 };
-
 
 export {
     menuLoaded,
