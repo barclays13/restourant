@@ -4,12 +4,12 @@ import {connect} from 'react-redux';
 import WithRestoService from '../hoc';
 import {menuLoaded, menuRequested, menuError, addedToCart} from '../../actions';
 import Spinner from '../spinner';
-import ErrorBoundry from '../error-boundry';
+import Error from '../error';
 import './menu-list.scss';
 
 class MenuList extends Component {
     componentDidMount () {
-        this.props.menuRequested();
+        menuRequested();
         const {RestoService} = this.props;
         RestoService.getMenuItems()
             .then(res => this.props.menuLoaded(res))
@@ -27,7 +27,7 @@ class MenuList extends Component {
         }
 
         if(error) {
-            return <ErrorBoundry/>
+            return <Error/>
         }
         
         return (
@@ -46,6 +46,7 @@ class MenuList extends Component {
 };
 
 const mapStateToProps = (state) => {
+    console.log('state: ', state);
     return {
         menuItems: state.menu,
         loading: state.loading,

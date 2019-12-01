@@ -1,7 +1,34 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {menuError} from '../../actions';
+import {connect} from 'react-redux';
+import WithRestoService from '../hoc';
+class Error extends Component {
+    componentDidMount (){
+        this.props.menuError();
+    }
 
-const Error = () => {
-    return <div style={{color: "white", textAlign: "center"}} className="error">Error</div>
+    render (){
+        return(
+            <div style={{color: "white", textAlign: "center"}} className="error">Error</div>
+        )
+    }
+
+
 }
+const mapStateToProps = (state) => {
+    console.log('state: ', state);
+    return {
+        menuItems: state.menu,
+        loading: state.loading,
+        error: state.error
+    }
+};
 
-export default Error;
+const mapDispatchToProps = {
+    menuError
+};
+
+
+export default WithRestoService()(connect(mapStateToProps, mapDispatchToProps)(Error));
+
+//  export default Error;
